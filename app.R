@@ -21,15 +21,22 @@ merge_df <- merge_df[merge_df$Date >= '2012-01-01',]
 #########################
 agg_heat <- aggregate(merge_df$Weekly_Sales, by = list(merge_df$state, merge_df$Date), sum)
 colnames(agg_heat) <- c("State","Weeks","Total_Sales")
+agg_heat$Holiday <- 'Not a Holiday'
+agg_heat$Holiday[agg_heat$Weeks == '2012-02-10'] <- "Super Bowl"
+agg_heat$Holiday[agg_heat$Weeks == '2012-09-07'] <- "Labor Day"
+
+
 
 agg_heat$part <- paste("Week of: ", agg_heat$Weeks, sep = "")
 agg_heat$state <- paste("State: ",agg_heat$State, sep = "")
 agg_heat$total_text <- format(agg_heat$Total_Sales, big.mark = ",", scientific = FALSE)
 agg_heat$total_text <- paste("$",agg_heat$total_text,sep = "")
 agg_heat$sales <- paste("Total Sales: ", agg_heat$total_text, sep = "")
+agg_heat$Holiday <- paste("Holiday: ", agg_heat$Holiday, sep = "")
 
 agg_heat$date_state <- paste(agg_heat$part,agg_heat$state, sep = "<br>")
-agg_heat$all_text <- paste(agg_heat$date_state,agg_heat$sales, sep = "<br>")
+agg_heat$date_state_hol <- paste(agg_heat$date_state,agg_heat$Holiday, sep = "<br>")
+agg_heat$all_text <- paste(agg_heat$sales, agg_heat$date_state_hol, sep = "<br>")
 agg_heat$total_text <- format(agg_heat$Total_Sales, big.mark = ",", scientific = FALSE)
 
 
