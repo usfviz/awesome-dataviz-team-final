@@ -20,7 +20,7 @@ shiny::runGitHub("awesome-dataviz-team-final", "usfviz")
 
 
 ### Data Description
-Historical sales data for 45 Walmart stores located in different regions
+Historical sales data for 45 Walmart stores located in different regions, we are only focusing on 2012 data.
 
 Features:
 * Store - the store number (categorical)
