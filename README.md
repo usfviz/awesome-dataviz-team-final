@@ -11,12 +11,13 @@ In order to run this code you must have the following package installed
 * ggplot2
 * tidyr
 * shiny
+* shinythemes
+* scales
 
-You can download the code and data files here:
+You can run the app using this command:
 
-https://github.com/usfviz/awesome-dataviz-team-/archive/master.tar.gz
+shiny::runGitHub("awesome-dataviz-team-final", "usfviz")
 
-Running this command will start the shiny app and allow you to interact with it.
 
 ### Data Description
 Historical sales data for 45 Walmart stores located in different regions
