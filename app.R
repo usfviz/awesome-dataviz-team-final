@@ -21,7 +21,7 @@ merge_df <- merge_df[merge_df$Date >= '2012-01-01',]
 #########################
 agg_heat <- aggregate(merge_df$Weekly_Sales, by = list(merge_df$state, merge_df$Date), sum)
 colnames(agg_heat) <- c("State","Weeks","Total_Sales")
-agg_heat$Holiday <- 'Not a Holiday'
+agg_heat$Holiday <- 'No'
 agg_heat$Holiday[agg_heat$Weeks == '2012-02-10'] <- "Super Bowl"
 agg_heat$Holiday[agg_heat$Weeks == '2012-09-07'] <- "Labor Day"
 
